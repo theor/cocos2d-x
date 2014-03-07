@@ -3,6 +3,7 @@ SET(STORAGE_SOURCES
   local-storage/LocalStorage.cpp
   )
 
+enable_unity_build(storage STORAGE_SOURCES)
 add_library(storage STATIC
   ${STORAGE_SOURCES}
 )

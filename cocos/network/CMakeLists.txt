@@ -24,6 +24,7 @@ set(NETWORK_SRC
   ${PLATFORM_SRC}
 )
 
+enable_unity_build(network NETWORK_SRC)
 add_library(network STATIC
   ${NETWORK_SRC}
 )

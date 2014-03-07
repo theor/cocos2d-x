@@ -19,6 +19,7 @@ set(GUI_SRC
   UITextField.cpp
 )
 
+enable_unity_build(gui GUI_SRC)
 add_library(gui STATIC
   ${GUI_SRC}
 )

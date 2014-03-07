@@ -39,9 +39,10 @@ include_directories(
   ..
 )
 
+set(EXTENSIONS_ALL_SRC ${EXTENSIONS_SRC} ${PLATFORM_EXTENSIONS_SRC})
+enable_unity_build(extensions EXTENSIONS_ALL_SRC)
 add_library(extensions STATIC
-  ${EXTENSIONS_SRC}
-  ${PLATFORM_EXTENSIONS_SRC}
+  ${EXTENSIONS_ALL_SRC}
 )
 
 set_target_properties(extensions

@@ -51,6 +51,7 @@ include_directories(
   ..
 )
 
+enable_unity_build(box2d BOX2D_SRC)
 add_library(box2d STATIC
   ${BOX2D_SRC}
 )

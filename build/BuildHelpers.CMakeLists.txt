@@ -23,7 +23,11 @@ function(enable_unity_build UB_SUFFIX SOURCE_VARIABLE_NAME)
   # Add include statement for each translation unit
   foreach(source_file ${files} )
     FILE( APPEND ${unit_build_file} "#pragma message(\"${UB_SUFFIX} - ${source_file}\")\n")
-    FILE( APPEND ${unit_build_file} "#include <${CMAKE_CURRENT_SOURCE_DIR}/${source_file}>\n")
+    if(IS_ABSOLUTE ${source_file})
+      FILE( APPEND ${unit_build_file} "#include <${source_file}>\n")
+    else()
+      FILE( APPEND ${unit_build_file} "#include <${CMAKE_CURRENT_SOURCE_DIR}/${source_file}>\n")
+    endif()
   endforeach(source_file)
   # Complement list of translation units with the name of ub
   set(${SOURCE_VARIABLE_NAME} ${${SOURCE_VARIABLE_NAME}} ${unit_build_file} PARENT_SCOPE)  
