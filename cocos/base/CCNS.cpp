@@ -28,8 +28,6 @@ THE SOFTWARE.
 #include <string.h>
 #include <stdlib.h>
 
-using namespace std;
-
 NS_CC_BEGIN
 
 typedef std::vector<std::string> strArray;

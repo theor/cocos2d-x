@@ -25,18 +25,16 @@ THE SOFTWARE.
 
 #include "CCSet.h"
 
-using namespace std;
-
 NS_CC_BEGIN
 
 __Set::__Set(void)
 {
-    _set = new set<Ref *>;
+    _set = new std::set<Ref *>;
 }
 
 __Set::__Set(const __Set &other)
 {
-    _set = new set<Ref *>(*other._set);
+    _set = new std::set<Ref *>(*other._set);
 
     // call retain of members
     __SetIterator iter;

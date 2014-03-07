@@ -17,6 +17,7 @@ set(COCOS_BASE_SRC
   CCConsole.cpp
 )
 
+enable_unity_build(cocosbase, COCOS_BASE_SRC)
 add_library(cocosbase STATIC
   ${COCOS_BASE_SRC}
 )

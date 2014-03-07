@@ -24,6 +24,7 @@ else()
 
 endif()
 
+enable_unity_build(audio AUDIO_SRC)
 add_library(audio STATIC
   ${AUDIO_SRC}
 )
