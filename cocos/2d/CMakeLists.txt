@@ -150,10 +150,10 @@ set(COCOS2D_SRC
 
 include(../physics/CMakeLists.txt)
 
+set(COCOS2D_COMPLETE_SRC ${COCOS2D_SRC} ${PLATFORM_SRC} ${COCOS_PHYSICS_SRC})
+enable_unity_build(cocos2d COCOS2D_COMPLETE_SRC)
 add_library(cocos2d STATIC
-  ${COCOS2D_SRC}
-  ${PLATFORM_SRC}
-  ${COCOS_PHYSICS_SRC}
+  ${COCOS2D_COMPLETE_SRC}
 )
 
 if(WIN32)

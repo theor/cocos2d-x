@@ -29,7 +29,7 @@ NS_CC_BEGIN
 
 using namespace std;
 
-static MaterialManager* s_instance = nullptr;
+MaterialManager* MaterialManager::s_instance = nullptr;
 
 MaterialManager *MaterialManager::getInstance()
 {
