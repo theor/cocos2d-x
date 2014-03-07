@@ -34,6 +34,7 @@ include(build/BuildHelpers.CMakeLists.txt)
 
 if(WIN32 OR APPLE)
 
+<<<<<<< HEAD
 option(USE_CHIPMUNK "Use chipmunk for physics library" ON)
 option(USE_BOX2D "Use box2d for physics library" OFF)
 option(DEBUG_MODE "Debug or release?" ON)
@@ -61,6 +62,43 @@ option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
 option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
 
 option(BUILD_TestCpp "Only build TestCpp sample" ON)
+=======
+  option(USE_CHIPMUNK "Use chipmunk for physics library" ON)
+  option(USE_BOX2D "Use box2d for physics library" OFF)
+  option(DEBUG_MODE "Debug or release?" ON)
+  option(BUILD_LIBS_LUA "Build lua libraries" OFF)
+  option(BUILD_LIBS_JS "Build javascript libraries" OFF)
+  option(BUILD_GUI "Build GUI library" ON)
+  option(BUILD_NETWORK "Build network library" ON)
+  option(BUILD_STORAGE "Build storage library" ON)
+  option(BUILD_EXTENSIONS "Build extension library" ON)
+  option(BUILD_EDITOR_SPINE "Build editor support for spine" ON)
+  option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
+  option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
+
+  option(BUILD_TestCpp "Only build TestCpp sample" ON)
+  option(BUILD_TestJs "Only build TestJavascript sample" OFF)
+  option(BUILD_TestLua "Only build TestLua sample" OFF)
+
+else()#temp
+
+  option(USE_CHIPMUNK "Use chipmunk for physics library" ON)
+  option(USE_BOX2D "Use box2d for physics library" OFF)
+  option(DEBUG_MODE "Debug or release?" ON)
+  option(BUILD_LIBS_LUA "Build lua libraries" ON)
+  option(BUILD_LIBS_JS "Build javascript libraries" ON)
+  option(BUILD_GUI "Build GUI library" ON)
+  option(BUILD_NETWORK "Build network library" ON)
+  option(BUILD_STORAGE "Build storage library" ON)
+  option(BUILD_EXTENSIONS "Build extension library" ON)
+  option(BUILD_EDITOR_SPINE "Build editor support for spine" ON)
+  option(BUILD_EDITOR_COCOSTUDIO "Build editor support for cocostudio" ON)
+  option(BUILD_EDITOR_COCOSBUILDER "Build editor support for cocosbuilder" ON)
+
+  option(BUILD_TestCpp "Only build TestCpp sample" ON)
+  option(BUILD_TestJs "Only build TestJavascript sample" ON)
+  option(BUILD_TestLua "Only build TestLua sample" ON)
+>>>>>>> unity_builds
 
 endif()#temp
 
@@ -242,46 +280,79 @@ add_subdirectory(cocos/base)
 add_subdirectory(cocos/2d)
 
 if(BUILD_STORAGE)
-# cocos storage
-add_subdirectory(cocos/storage)
+  # cocos storage
+  add_subdirectory(cocos/storage)
 endif(BUILD_STORAGE)
 
 if(BUILD_GUI)
-# gui
-add_subdirectory(cocos/gui)
+  # gui
+  add_subdirectory(cocos/gui)
 endif(BUILD_GUI)
 
 if(BUILD_NETWORK)
-# network
-add_subdirectory(cocos/network)
+  # network
+  add_subdirectory(cocos/network)
 endif(BUILD_NETWORK)
 
 if(BUILD_EXTENSIONS)
-# extensions
-add_subdirectory(extensions)
+  # extensions
+  add_subdirectory(extensions)
 endif(BUILD_EXTENSIONS)
 
 ## Editor Support
 
 if(BUILD_EDITOR_SPINE)
-# spine
-add_subdirectory(cocos/editor-support/spine)
+  # spine
+  add_subdirectory(cocos/editor-support/spine)
 endif(BUILD_EDITOR_SPINE)
 
 if(BUILD_EDITOR_COCOSBUILDER)
-# cocosbuilder
-add_subdirectory(cocos/editor-support/cocosbuilder)
+  # cocosbuilder
+  add_subdirectory(cocos/editor-support/cocosbuilder)
 endif(BUILD_EDITOR_COCOSBUILDER)
 
 if(BUILD_EDITOR_COCOSTUDIO)
-# cocostudio
-add_subdirectory(cocos/editor-support/cocostudio)
+  # cocostudio
+  add_subdirectory(cocos/editor-support/cocostudio)
 endif(BUILD_EDITOR_COCOSTUDIO)
 
+<<<<<<< HEAD
 # build tests 
 
 if(BUILD_TestCpp)
 add_subdirectory(tests)
 endif(BUILD_TestCpp)
 
+=======
+## Scripting
+if(BUILD_LIBS_LUA)
+  # lua
+  add_subdirectory(external/lua/lua)
+
+  # tolua
+  add_subdirectory(external/lua/tolua)
+
+  # luabinding
+  add_subdirectory(cocos/scripting/lua)
+endif(BUILD_LIBS_LUA)
+
+if(BUILD_LIBS_JS)
+  # jsbinding
+  add_subdirectory(cocos/scripting/javascript)
+endif(BUILD_LIBS_JS)
+
+# build tests 
+
+if(BUILD_TestCpp)
+  add_subdirectory(tests/test-cpp)
+endif(BUILD_TestCpp)
+
+if(BUILD_TestJs)
+  add_subdirectory(tests/test-javascript)
+endif(BUILD_TestJs)
+
+if(BUILD_TestLua)
+  add_subdirectory(tests/test-lua)
+endif(BUILD_TestLua)
+>>>>>>> unity_builds
 
