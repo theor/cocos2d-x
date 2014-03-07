@@ -61,6 +61,8 @@ protected:
     std::map<GLuint, int> _textureIDMapping;
     std::map<GLuint, int> _shaderIDMapping;
     std::map<BlendFunc, int> _blendFuncMapping;
+private:
+    static MaterialManager* s_instance;
 };
 
 NS_CC_END

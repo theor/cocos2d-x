@@ -126,7 +126,7 @@ bool FileUtilsWin32::isAbsolutePath(const std::string& strPath) const
     return false;
 }
 
-static Data getData(const std::string& filename, bool forString)
+static Data getDataWin32(const std::string& filename, bool forString)
 {
     unsigned char *buffer = nullptr;
     CCASSERT(!filename.empty(), "Invalid parameters.");
@@ -187,7 +187,7 @@ static Data getData(const std::string& filename, bool forString)
 
 std::string FileUtilsWin32::getStringFromFile(const std::string& filename)
 {
-    Data data = getData(filename, true);
+    Data data = getDataWin32(filename, true);
 	if (data.isNull())
 	{
 		return "";
@@ -198,7 +198,7 @@ std::string FileUtilsWin32::getStringFromFile(const std::string& filename)
     
 Data FileUtilsWin32::getDataFromFile(const std::string& filename)
 {
-    return getData(filename, false);
+    return getDataWin32(filename, false);
 }
 
 unsigned char* FileUtilsWin32::getFileData(const std::string& filename, const char* mode, ssize_t* size)

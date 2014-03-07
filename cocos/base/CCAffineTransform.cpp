@@ -26,9 +26,6 @@ THE SOFTWARE.
 #include <algorithm>
 #include <math.h>
 
-using namespace std;
-
-
 NS_CC_BEGIN
 
 AffineTransform __CCAffineTransformMake(float a, float b, float c, float d, float tx, float ty)
@@ -73,6 +70,8 @@ const AffineTransform AffineTransform::IDENTITY = AffineTransformMakeIdentity();
 
 Rect RectApplyAffineTransform(const Rect& rect, const AffineTransform& anAffineTransform)
 {
+    using namespace std;
+
     float top    = rect.getMinY();
     float left   = rect.getMinX();
     float right  = rect.getMaxX();
@@ -93,6 +92,8 @@ Rect RectApplyAffineTransform(const Rect& rect, const AffineTransform& anAffineT
 
 Rect RectApplyTransform(const Rect& rect, const kmMat4& transform)
 {
+    using namespace std;
+
     float top    = rect.getMinY();
     float left   = rect.getMinX();
     float right  = rect.getMaxX();
